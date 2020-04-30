@@ -25,7 +25,7 @@ sudo apt update -y
 
 wget -nc "$KEY_WINE"
 sudo apt-key add winehg.key
-sudo apt-add-repository "deb $PPA_WINE bionic stable"
+sudo apt-add-repository "deb $PPA_WINE bionic main"
 
 sudo apt update -y
 
