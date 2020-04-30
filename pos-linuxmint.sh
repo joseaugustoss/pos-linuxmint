@@ -2,8 +2,11 @@
 
 APP_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 APP_INSYNC="https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.1.4.40797-bionic_amd64.deb"
+<<<<<<< HEAD
 KEY_WINE="https://dl.winehq.org/wine-builds/winehq.key"
 PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
+=======
+>>>>>>> J4
 PPA_PHP="ppa:ondrej/php"
 
 DOWNLOADS_APP="$HOME/Downloads/App"
@@ -32,9 +35,12 @@ sudo dpkg --add-architecture i386
 
 sudo apt update -y
 
+<<<<<<< HEAD
 wget -nc "$KEY_WINE"
 sudo apt-key add winehg.key
 sudo apt-add-repository "deb $PPA_WINE bionic main"
+=======
+>>>>>>> J4
 sudo apt-add-repository "$PPA_PHP" -y
 
 sudo apt update -y
@@ -94,6 +100,13 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
 
 sudo usermod -aG docker $USER
 
+<<<<<<< HEAD
+=======
+#Instalação do NodeJS 14
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+>>>>>>> J4
 sudo flatpak install flathub com.obsproject.Studio -y
 
 sudo snap install gimp
