@@ -8,12 +8,12 @@ PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 DOWNLOADS_APP="$HOME/Downloads/App"
 
 APP_INSTALL=(
+snapd
 mint-meta-codecs
 git
 winff
 guvcview
 nemo-dropbox
-snapd
 )
 
 sudo rm /var/lib/dpkg/lock-frontend
@@ -44,11 +44,35 @@ done
 
 sudo apt install --install-recommends winehq-stable wine-stable wine-stable-i386 wine-stable-amd64 -y
 
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+sudo apt-get update
+sudo apt-get install -y apt-transport-https
+sudo apt-get install -y code snapd
+
 sudo flatpak install flathub com.obsproject.Studio -y
 
 sudo snap install gimp
 sudo snap install spotify
 sudo snap install slack --classic
+sudo snap install phpstorm --classic
+
+sudo apt-get update
+
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common gnupg-agent
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+ 
+sudo apt-get update
+
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
+
+sudo usermod -aG docker $USER
+
 
 sudo apt update && sudo apt dist-upgrade -y
 flatpak update
