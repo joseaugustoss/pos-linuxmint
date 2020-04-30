@@ -30,7 +30,7 @@ sudo apt-add-repository "deb $PPA_WINE bionic main"
 sudo apt update -y
 
 mkdir "$DOWNLOADS_APP"
-wget -c "$APP_GOOGLE_CHROME"
+wget -c "$APP_GOOGLE_CHROME" -P "$DOWNLOADS_APP"
 
 sudo dpkg -i $DOWNLOADS_APP/*.deb
 
