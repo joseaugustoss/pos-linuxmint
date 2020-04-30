@@ -17,10 +17,6 @@ Script com alguns programas básico para Dev.
 * g++
 * vlc
 * git
-<<<<<<< HEAD
-* wine
-=======
->>>>>>> J4
 * vs code
 * phpstorm
 * gimp
