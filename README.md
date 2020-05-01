@@ -41,3 +41,6 @@ Script com alguns programas básico para Dev.
 * Discord
 * Telegram
 
+---
+
+[<center>![paypal](https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif)</center>](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=HHNQ5QLTASEJS&currency_code=BRL&source=url)
