@@ -35,6 +35,11 @@ Script com alguns programas básico para Dev.
 * android-studio
 * postman
 
+# Trabalhar com versionamento
+
+* Git Hub Desktop
+* GitKraken - O GitKraken inclui dois produtos de produtividade: o Git Client e o Glo Boards!
+
 # Comunicação
 
 * Slack

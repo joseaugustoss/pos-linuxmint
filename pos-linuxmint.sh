@@ -2,11 +2,7 @@
 
 APP_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 APP_INSYNC="https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.1.4.40797-bionic_amd64.deb"
-<<<<<<< HEAD
-KEY_WINE="https://dl.winehq.org/wine-builds/winehq.key"
-PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
-=======
->>>>>>> J4
+APP_GITDESKTOP="https://github.com/shiftkey/desktop/releases/download/release-2.4.1-linux2/GitHubDesktop-linux-2.4.1-linux2.deb"
 PPA_PHP="ppa:ondrej/php"
 
 DOWNLOADS_APP="$HOME/Downloads/App"
@@ -23,9 +19,11 @@ mariadb-server
 build-essential
 python-software-properties
 tmux
-g++
 vlc
 git
+gcc
+g++ 
+make
 )
 
 sudo rm /var/lib/dpkg/lock-frontend
@@ -35,20 +33,16 @@ sudo dpkg --add-architecture i386
 
 sudo apt update -y
 
-<<<<<<< HEAD
-wget -nc "$KEY_WINE"
-sudo apt-key add winehg.key
-sudo apt-add-repository "deb $PPA_WINE bionic main"
-=======
->>>>>>> J4
 sudo apt-add-repository "$PPA_PHP" -y
 
 sudo apt update -y
 
 mkdir "$DOWNLOADS_APP"
 wget -c "$APP_GOOGLE_CHROME" -P "$DOWNLOADS_APP"
+wget -c "$APP_GITDESKTOP" -P "$DOWNLOADS_APP"
 
 sudo dpkg -i $DOWNLOADS_APP/*.deb
+sudo apt -f install
 
 for name_app in ${APP_INSTALL[@]}; do
 	if ! dpkg -l | grep $name_app; then
@@ -100,13 +94,10 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
 
 sudo usermod -aG docker $USER
 
-<<<<<<< HEAD
-=======
 #Instalação do NodeJS 14
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
->>>>>>> J4
 sudo flatpak install flathub com.obsproject.Studio -y
 
 sudo snap install gimp
@@ -119,6 +110,7 @@ sudo snap install beekeeper-studio
 sudo snap install obs-studio
 sudo snap install android-studio --classic
 sudo snap install discord
+sudo snap install gitkraken
 
 sudo snap refresh
 
