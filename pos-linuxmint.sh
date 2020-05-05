@@ -42,11 +42,11 @@ wget -c "$APP_GOOGLE_CHROME" -P "$DOWNLOADS_APP"
 wget -c "$APP_GITDESKTOP" -P "$DOWNLOADS_APP"
 
 sudo dpkg -i $DOWNLOADS_APP/*.deb
-sudo apt -f install
+sudo apt install -f
 
 for name_app in ${APP_INSTALL[@]}; do
 	if ! dpkg -l | grep $name_app; then
-		sudo apt install  "$name_app" -y
+		sudo apt install -y  "$name_app"
 	else
 		echo "[INSTALL] - $name_app"
 	fi
@@ -59,14 +59,14 @@ sudo a2enmod ssl
 
 sudo systemctl restart apache2
 
-sudo apt install -y libapache2-mod-php7.4 php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl php-gettext php-mbstring php-dev php-xdebug php7.4-cli -y
+sudo apt install -y libapache2-mod-php7.4 php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl php-gettext php-mbstring php-dev php-xdebug php7.4-cli php7.4-dev php7.4-cgi
 
 sudo mkdir /etc/apache2/ssl
 
 sudo chown -R www-data:www-data /var/www/html/
 sudo chmod -R 777 /var/www/html
 
-sudo apt install phpmyadmin -y
+sudo apt install -y phpmyadmin
 
 sudo apt install --install-recommends winehq-stable wine-stable wine-stable-i386 wine-stable-amd64 -y
 
@@ -100,7 +100,7 @@ sudo apt-get install -y nodejs
 
 sudo flatpak install flathub com.obsproject.Studio -y
 
-sudo snap install gimp
+sudo snap install gitkraken
 sudo snap install spotify
 sudo snap install slack --classic
 sudo snap install phpstorm --classic
@@ -110,7 +110,7 @@ sudo snap install beekeeper-studio
 sudo snap install obs-studio
 sudo snap install android-studio --classic
 sudo snap install discord
-sudo snap install gitkraken
+sudo snap install gimp
 
 sudo snap refresh
 
